@@ -1,6 +1,24 @@
-### easywhatchat
-
+# easywhatchat
+***
     Application qui va te permettre écrire facile à un contact whatsApp 
-sans toute fois enregistrer le numéros. 
-    Par Sali Emmanuel etudiant à l'université de Maroua
+    sans toute fois enregistrer le numéros. 
+***
+### Auteur
+    Sali Emmanuel etudiant à l'université de Maroua
+***
+### Contact 
+    Tel       : 237 698066896
+    telegram  : @Null_Byte
+    facebook  : https://web.facebook.com/jonhsone.emmanuel/
+    instagram : @_dotDev
+***
+### Screenshot
+![Image text](EasyWhatChats/screenshot/e (1).jpeg)
+![Image text](EasyWhatChats/screenshot/e (2).jpeg)
+![Image text](EasyWhatChats/screenshot/e (3).jpeg)
+![Image text](EasyWhatChats/screenshot/e (4).jpeg)
+![Image text](EasyWhatChats/screenshot/e (5).jpeg)
+![Image text](EasyWhatChats/screenshot/e (6).jpeg)
+
+
 
