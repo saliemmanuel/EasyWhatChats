@@ -13,12 +13,13 @@
     instagram : @_dotDev
 ***
 ### Screenshot
-![Image text](EasyWhatChats/screenshot/e (1).jpeg)
-![Image text](EasyWhatChats/screenshot/e (2).jpeg)
-![Image text](EasyWhatChats/screenshot/e (3).jpeg)
-![Image text](EasyWhatChats/screenshot/e (4).jpeg)
-![Image text](EasyWhatChats/screenshot/e (5).jpeg)
-![Image text](EasyWhatChats/screenshot/e (6).jpeg)
+![Image text](https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(1).jpeg)
+![Image text](https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(2).jpeg)
+![Image text](https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(3).jpeg)
+![Image text](https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(4).jpeg)
+![Image text](https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(5).jpeg)
+![Image text](https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(6).jpeg)
+
 
 
 
