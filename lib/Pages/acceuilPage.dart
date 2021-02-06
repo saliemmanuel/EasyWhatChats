@@ -92,7 +92,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
               ),
             ],
             bottom: TabBar(
-              indicatorColor: Colors.white,
+              indicatorColor: Color(0xff25D366),
               tabs: <Widget>[
                 Tab(
                   text: "Chats",
