@@ -1,6 +1,5 @@
 import 'package:easywhatchat/Pages/apropos.dart';
 import 'package:easywhatchat/Pages/chatsPage.dart';
-import 'package:easywhatchat/Pages/helper/cardHisto.dart';
 import 'package:easywhatchat/Pages/historiquePage.dart';
 import 'package:easywhatchat/db/db.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ class AcceuilPage extends StatefulWidget {
   @override
   _AcceuilPageState createState() => _AcceuilPageState();
 }
-
+var indexedPage = 0;
 class _AcceuilPageState extends State<AcceuilPage> {
   @override
   Widget build(BuildContext context) {
@@ -24,13 +23,13 @@ class _AcceuilPageState extends State<AcceuilPage> {
             actions: <Widget>[
               PopupMenuButton(
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                  // PopupMenuItem(
-                  //   value: "profil",
-                  //   textStyle: TextStyle(color: Colors.black),
-                  //   child: Text("Profil"),
-                  //   height: 30.0,
-                  //   enabled: true,
-                  // ),
+                  PopupMenuItem(
+                    value: "profil",
+                    textStyle: TextStyle(color: Colors.black),
+                    child: Text("Profil"),
+                    height: 30.0,
+                    enabled: true,
+                  ),
                   indexedPage == 1
                       ? null
                       : PopupMenuItem(
@@ -92,7 +91,8 @@ class _AcceuilPageState extends State<AcceuilPage> {
               ),
             ],
             bottom: TabBar(
-              indicatorColor: Color(0xff25D366),
+              indicatorColor: Colors.white,
+              indicatorWeight: 4.5,
               tabs: <Widget>[
                 Tab(
                   text: "Chats",

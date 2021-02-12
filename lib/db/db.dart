@@ -1,4 +1,4 @@
-import 'package:easywhatchat/Pages/helper/models/numeroModels.dart';
+import 'package:easywhatchat/Pages/models/numeroModels.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -35,11 +35,12 @@ Future<List> getItems() async {
   var result = await db.rawQuery("SELECT * FROM numeros ORDER BY numero ASC");
   return result.toList();
 }
-
+// Comptage 
 Future<int> getCount() async {
   return Sqflite.firstIntValue(
       await db.rawQuery("SELECT COUNT(*) FROM numeros"));
 }
+// Mise a jours 
 update(Numero nouveauNumero)async{
   var result = await db.update("numeros", nouveauNumero.toMap(),
   where: "numero = ?", whereArgs: [nouveauNumero.numero]
@@ -47,11 +48,13 @@ update(Numero nouveauNumero)async{
   return result;
 }
 
+// Suppression par numero
 deleteOneItem(String numero) async {
   var result = await db.delete("numeros", where: "numero = $numero");
   return result;
 }
 
+// Suppression complet*
 Future<int> deleteItem() async {
   return await db.delete("numeros");
 }

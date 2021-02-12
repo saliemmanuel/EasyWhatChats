@@ -77,7 +77,7 @@ class _AproposState extends State<Apropos> {
               ),
               Card(
                 child: ListTile(
-                  title: Text("Easy WhatChats  v1.0.0 Copyright 2021 "),
+                  title: Text("Easy WhatChats  v1.1.0 Copyright 2021 "),
                   leading: Icon(
                     Icons.info,
                     color: Colors.black87,

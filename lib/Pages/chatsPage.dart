@@ -1,6 +1,9 @@
-import 'package:easywhatchat/Pages/helper/cardHisto.dart';
-import 'package:easywhatchat/Pages/helper/models/numeroModels.dart';
+import 'package:easywhatchat/Pages/acceuilPage.dart';
+import 'package:easywhatchat/Pages/models/numeroModels.dart';
+import 'package:easywhatchat/Pages/selectContactInterface.dart';
 import 'package:easywhatchat/db/db.dart';
+import 'package:fcontacts/fcontacts.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,6 +15,7 @@ class ChatsPage extends StatefulWidget {
 class _ChatsPageState extends State<ChatsPage> {
   @override
   void initState() {
+   
     super.initState();
     setState(() {
       indexedPage = 0;
@@ -41,68 +45,72 @@ class _ChatsPageState extends State<ChatsPage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: ListView(
-            children: [
-              Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("Numéro"),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.grey)),
-                        child: TextField(
-                          keyboardType: TextInputType.phone,
-                          decoration: InputDecoration(
-                            
-                              border: InputBorder.none,
-                              hintText: "Entrez le numéro ici..."),
-                          controller: controllerNumber,
+        child: CupertinoScrollbar(
+                  child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: ListView(
+              shrinkWrap: false,
+              children: [
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text("Numéro"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: Colors.grey)),
+                          child: TextField(
+                            keyboardType: TextInputType.phone,
+                            decoration: InputDecoration(
+                              
+                                border: InputBorder.none,
+                                hintText: "Entrez le numéro ici..."),
+                            controller: controllerNumber,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("Message"),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Colors.grey)),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Entrez le message ici..."),
-                          controller: controller,
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text("Message"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(10, 2, 10, 2),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: Colors.grey)),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Entrez le message ici..."),
+                            controller: controller,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-            ],
+                SizedBox(
+                  height: 10.0,
+                ),
+                SelectContactInterface(),
+              ],
+            ),
           ),
         ),
       ),
@@ -144,10 +152,11 @@ class _ChatsPageState extends State<ChatsPage> {
               Numero nouveauNumero =
                   Numero(0, "${controllerNumber.text}", "${controller.text}");
               saveItem(nouveauNumero);
-              launchURL(
-                  "https://api.whatsapp.com/send/?phone=237${controllerNumber.text}&text=${controller.text}");
+              // launchURL(
+              //     "https://api.whatsapp.com/send/?phone=237${controllerNumber.text}&text=${controller.text}");
               controllerNumber.clear();
               controller.clear();
+               getContact() ;
             }
           }
         },
@@ -158,4 +167,8 @@ class _ChatsPageState extends State<ChatsPage> {
       ),
     );
   }
+}
+void getContact() async{
+  List<FContact> allContacts = await FContacts.all();
+  print(allContacts);
 }
