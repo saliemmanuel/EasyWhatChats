@@ -4,8 +4,10 @@ import 'package:line_icons/line_icons.dart';
 class DetailPage extends StatelessWidget {
   final number;
   final message;
+  final dialCode;
 
-  const DetailPage({Key key, this.number, this.message}) : super(key: key);
+  const DetailPage({Key key, this.number, this.message, this.dialCode})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +62,7 @@ class DetailPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0, left: 12.0),
                           child: Text(
-                            "Récents",
+                            "Message",
                             style: TextStyle(
                                 fontSize: 16.0,
                                 color: Color(0xff075E54),
@@ -69,7 +71,6 @@ class DetailPage extends StatelessWidget {
                         ),
                         ListTile(
                           title: Text(message),
-                          subtitle: Text("Message"),
                         ),
                       ],
                     ),
@@ -82,30 +83,15 @@ class DetailPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0, left: 12.0),
                           child: Text(
-                            "Infromations WhatsApp",
+                            "Code Pays",
                             style: TextStyle(
-                                color: Color(0xff075E54),
                                 fontSize: 16.0,
+                                color: Color(0xff075E54),
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                         ListTile(
-                          title: Text(
-                            "Nom profil",
-                            style: TextStyle(
-                                color: Color(0xff075E54),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text("@_dotDev"),
-                        ),
-                        ListTile(
-                          title: Text(
-                            "Actu",
-                            style: TextStyle(
-                                color: Color(0xff075E54),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text("final String dotDev = '@_dotDev'; "),
+                          title: Text(dialCode),
                         ),
                       ],
                     ),

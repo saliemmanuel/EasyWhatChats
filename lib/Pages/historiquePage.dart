@@ -1,4 +1,4 @@
-import 'package:easywhatchat/Pages/acceuilPage.dart';
+import 'package:easywhatchat/Pages/homePage.dart';
 import 'package:easywhatchat/Pages/detailContact.dart';
 import 'package:easywhatchat/Pages/models/numeroModels.dart';
 import 'package:easywhatchat/db/db.dart';
@@ -18,7 +18,7 @@ final List<Numero> listNumero = <Numero>[];
 
 class _HistoriqueState extends State<Historique> {
   TextEditingController controller = new TextEditingController();
-  readToDoList() async {
+  readNumberList() async {
     numeroPresent = await getItems();
     numeroPresent.forEach((item) {
       setState(() {
@@ -41,7 +41,7 @@ class _HistoriqueState extends State<Historique> {
     setState(() {
       indexedPage = 1;
     });
-    readToDoList();
+    readNumberList();
   }
 
   @override
@@ -64,7 +64,6 @@ class _HistoriqueState extends State<Historique> {
                 child: ListTile(
                   leading: InkWell(
                       child: CircleAvatar(
-                   
                         child: Icon(
                           LineIcons.user,
                           size: 30.0,
@@ -75,6 +74,7 @@ class _HistoriqueState extends State<Historique> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (_) => DetailPage(
+                                  dialCode: numeroPresent[i]["dialcode"],
                                   number: numeroPresent[i]["numero"],
                                   message: numeroPresent[i]["message"],
                                 )));
@@ -92,7 +92,6 @@ class _HistoriqueState extends State<Historique> {
                     icon: Icon(
                       Icons.message_sharp,
                       color: Color(0xff25D366),
-                
                     ),
                     onPressed: () {
                       showDialog(
@@ -120,13 +119,14 @@ class _HistoriqueState extends State<Historique> {
                                 FlatButton(
                                   child: Text("Envoyer"),
                                   onPressed: () {
-                                    Numero nouveauNumero = Numero(
-                                        0,
-                                        "${numeroPresent[i]["numero"]}",
-                                        "${controller.text}");
-                                    update(nouveauNumero);
-                                    launchURL(
-                                        "https://api.whatsapp.com/send/?phone=237${numeroPresent[i]["numero"]}&text=${controller.text}");
+                                    Numero updateNumero = Numero(
+                                      0,
+                                      "${numeroPresent[i]["dialcode"]}",
+                                      "${controller.text}",
+                                      "${numeroPresent[i]["numero"]}",
+                                    );
+                                    update(updateNumero);
+                                    // launchURL("https://api.whatsapp.com/send/?phone=${numeroPresent[i]["dialCode"]}${numeroPresent[i]["numero"]}&text=${controller.text}");
                                     controller.clear();
                                     Navigator.of(context).pop();
                                   },
@@ -206,7 +206,7 @@ class _HistoriqueState extends State<Historique> {
                   case "supprimer":
                     deleteOneItem('${numeroPresent[i]["numero"]}');
                     setState(() {
-                      readToDoList();
+                      readNumberList();
                     });
                     break;
                   case "presse-papier":

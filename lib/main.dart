@@ -1,7 +1,7 @@
 import 'package:easywhatchat/Pages/splachScreen.dart';
 import 'package:flutter/material.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
     home: SplashScreeen(),

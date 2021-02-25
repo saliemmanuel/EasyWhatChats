@@ -41,16 +41,13 @@ class CardContactInconnu extends StatelessWidget {
   }
 }
 
-Widget custumListTile({String title, String subtitle}) {
+Widget custumListTile({var title, var subtitle}) {
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(top: 18.0, left: 15.0),
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-          ),
+          child:   Text(title,style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 5.0, left: 15.0),
@@ -60,6 +57,8 @@ Widget custumListTile({String title, String subtitle}) {
         )
       ]);
 }
+
+
 
 Widget dataInformation(bool haveOrNot) {
   return Row(

@@ -1,4 +1,4 @@
-import 'package:easywhatchat/Pages/acceuilPage.dart';
+import 'package:easywhatchat/Pages/homePage.dart';
 import 'package:easywhatchat/Pages/introPage.dart';
 import 'package:easywhatchat/db/db.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +53,9 @@ class _SplashScreeenState extends State<SplashScreeen> {
                 SizedBox(
                   height: 15.0,
                 ),
-                Text("Par Sali Emmanuel")
+                Text("Par Sali Emmanuel",
+                    style:
+                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
               ],
             )
           ],
