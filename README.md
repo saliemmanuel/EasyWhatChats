@@ -2,15 +2,21 @@
 
 Application qui va te permettre écrire facilement à un contact whatsApp sans toute fois a avoir à enregistrer le numéros. Par Sali Emmanuel
 
-## Getting Started
+***
+### Auteur
+    Sali Emmanuel etudiant à l'université de Maroua
+***
+### Contact 
+    Tel       : 237 698066896
+    telegram  : @Null_Byte
+    facebook  : https://web.facebook.com/jonhsone.emmanuel/
+    instagram : @_dotDev
+***
+### Screenshot
+(https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(1).jpeg)
+(https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(2).jpeg)
+(https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(3).jpeg)
+(https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(4).jpeg)
+(https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(5).jpeg)
+(https://github.com/saliemmanuel/EasyWhatChats/tree/master/screenshot/e(6).jpeg)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
