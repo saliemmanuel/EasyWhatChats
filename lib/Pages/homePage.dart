@@ -4,7 +4,7 @@ import 'package:easywhatchat/Pages/historiquePage.dart';
 import 'package:easywhatchat/db/db.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:toast/toast.dart';
 class AcceuilPage extends StatefulWidget {
   @override
   _AcceuilPageState createState() => _AcceuilPageState();
@@ -23,7 +23,6 @@ class _AcceuilPageState extends State<AcceuilPage> {
             actions: <Widget>[
               PopupMenuButton(
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            
                   indexedPage == 1
                       ? null
                       : PopupMenuItem(
@@ -52,6 +51,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                   if (value == "apropos") {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (_) => Apropos()));
+                        
                   }
                   if (value == "historique") {
                     showDialog(
@@ -71,6 +71,7 @@ class _AcceuilPageState extends State<AcceuilPage> {
                                   deleteItem();
                                   setState(() {});
                                   Navigator.of(context).pop();
+                                  Toast.show("Supprimé", context);
                                 },
                               )
                             ],

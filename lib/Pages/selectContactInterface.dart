@@ -3,10 +3,10 @@ import 'package:easywhatchat/Pages/models/callLogModels.dart';
 import 'package:easywhatchat/db/db.dart';
 import 'package:flutter/material.dart';
 import 'package:call_log/call_log.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class SelectContactInterface extends StatefulWidget {
-   TextEditingController controllerNumber;
+  final TextEditingController controllerNumber;
   SelectContactInterface({this.controllerNumber});
   
   @override
@@ -14,7 +14,7 @@ class SelectContactInterface extends StatefulWidget {
 }
 
 class _SelectContactInterfaceState extends State<SelectContactInterface> {
-  final List<CallLogModels> _listCallLog = <CallLogModels>[];
+   List<CallLogModels> _listCallLog = <CallLogModels>[];
   Icon arrowIcon = Icon(Icons.keyboard_arrow_down_outlined);
   List _logs;
   CallLogModels _callLogModels;
@@ -87,7 +87,9 @@ class _SelectContactInterfaceState extends State<SelectContactInterface> {
                             haveOrNot: true,
                             linkPP: "",
                           ),
-                          onTap: ()=>setState(()=> widget.controllerNumber.text = _listCallLog[index].toString()),
+                          onTap: (){setState(()=> widget.controllerNumber.text = _listCallLog[index].toString());
+                            Toast.show("Sélectionné", context);
+                          },
                         ),
                       );
                     },

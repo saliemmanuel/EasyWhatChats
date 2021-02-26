@@ -9,7 +9,7 @@ Future<void> initDatabase() async {
   db = await openDatabase(path, version: 1,
       onCreate: (Database db, int version) async {
     var tableNumeros =
-        "CREATE TABLE `numeros` (`id` int(2) NOT NULL,`dialcode` varchar(255) UNIQUE NOT NULL, `numero` varchar(255) UNIQUE NOT NULL, `message` varchar(255) NOT NULL)";
+        "CREATE TABLE `numeros` (`id` int(2) NOT NULL,`dialcode` varchar(255) NOT NULL, `numero` varchar(255) UNIQUE NOT NULL, `message` varchar(255) NOT NULL)";
     var tableCallLogs =
         "CREATE TABLE `calllogs` (`id` int(2) NOT NULL,`number` varchar(255) UNIQUE NOT NULL, `name` varchar(255) )";
     await db.execute(tableNumeros);

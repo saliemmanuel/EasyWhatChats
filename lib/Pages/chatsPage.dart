@@ -54,7 +54,7 @@ class _ChatsPageState extends State<ChatsPage> {
                 custCard(
                     numberCodeWidget: CountryCodePicker(
                       initialSelection: 'CM',
-                      favorite: ["FR","CI", "CM"],
+                      favorite: ["FR","CI", "CM", "CA"],
                       padding: const EdgeInsets.only(right: 20.0),
                       onChanged: (value) {
                         numberCode = value.dialCode;
@@ -81,7 +81,7 @@ class _ChatsPageState extends State<ChatsPage> {
       ),
       floatingActionButton: MaterialButton(
         color: Colors.green,
-        onPressed: () {
+        onPressed: () async{
           if (controllerNumber.text.isEmpty || controllerMessage.text.isEmpty) {
             alertDialog(
                 titleAlert: "Erreur",
@@ -95,7 +95,7 @@ class _ChatsPageState extends State<ChatsPage> {
               Numero nouveauNumero = Numero(
                   0, "$numberCode","${controllerNumber.text}", "${controllerMessage.text}");
               saveItem(nouveauNumero);
-              // launchURL("https://api.whatsapp.com/send/?phone=$numberCode${controllerNumber.text}&text=${controllerMessage.text}");
+              launchURL("https://api.whatsapp.com/send/?phone=$numberCode${controllerNumber.text}&text=${controllerMessage.text}");
               controllerNumber.clear();
               controllerMessage.clear();
             }

@@ -7,24 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:toast/toast.dart';
 class Historique extends StatefulWidget {
   @override
   _HistoriqueState createState() => _HistoriqueState();
 }
 
-List numeroPresent;
-final List<Numero> listNumero = <Numero>[];
-
 class _HistoriqueState extends State<Historique> {
+  List numeroPresent;
   TextEditingController controller = new TextEditingController();
   readNumberList() async {
     numeroPresent = await getItems();
-    numeroPresent.forEach((item) {
-      setState(() {
-        listNumero.add(Numero.map(item));
-      });
-    });
+    setState((){});
   }
 
   launchURL(String url) async {
@@ -79,14 +73,10 @@ class _HistoriqueState extends State<Historique> {
                                   message: numeroPresent[i]["message"],
                                 )));
                       }),
-                  title: Row(
-                    children: [
-                      Text(
+                  title: Text(
                         "${numeroPresent[i]["numero"]}",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ],
-                  ),
                   subtitle: Text("Mobile"),
                   trailing: IconButton(
                     icon: Icon(
@@ -126,7 +116,8 @@ class _HistoriqueState extends State<Historique> {
                                       "${numeroPresent[i]["numero"]}",
                                     );
                                     update(updateNumero);
-                                    // launchURL("https://api.whatsapp.com/send/?phone=${numeroPresent[i]["dialCode"]}${numeroPresent[i]["numero"]}&text=${controller.text}");
+                                    launchURL(
+                                        "https://api.whatsapp.com/send/?phone=${numeroPresent[i]["dialCode"]}${numeroPresent[i]["numero"]}&text=${controller.text}");
                                     controller.clear();
                                     Navigator.of(context).pop();
                                   },
@@ -156,8 +147,6 @@ class _HistoriqueState extends State<Historique> {
                   });
             },
             onLongPressStart: (LongPressStartDetails detail) {
-              //
-
               showMenu(
                 context: context,
                 position: RelativeRect.fromLTRB(detail.globalPosition.dx,
@@ -170,7 +159,6 @@ class _HistoriqueState extends State<Historique> {
                       '${numeroPresent[i]["numero"]}',
                       style: TextStyle(
                           color: Colors.blue,
-                          letterSpacing: 1.3,
                           fontWeight: FontWeight.bold),
                     ),
                     enabled: false,
@@ -205,18 +193,17 @@ class _HistoriqueState extends State<Historique> {
                     break;
                   case "supprimer":
                     deleteOneItem('${numeroPresent[i]["numero"]}');
-                    setState(() {
-                      readNumberList();
-                    });
+                    readNumberList();
+                    Toast.show("Supprimer", context);
                     break;
                   case "presse-papier":
                     Clipboard.setData(
                         new ClipboardData(text: numeroPresent[i]["numero"]));
+                        Toast.show("Copier", context);
                     break;
                 }
               });
 
-              //
             },
           );
         },
